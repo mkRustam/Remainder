@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- custom -->
+    <color name="bg_splash">@color/gray</color>
+    <color name="bg_screen">#333030</color>
+
+</resources>

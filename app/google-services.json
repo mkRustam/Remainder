@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "424153216652",
+    "project_id": "remainder-test-cc2a3",
+    "storage_bucket": "remainder-test-cc2a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424153216652:android:0562a622e870ece3552da9",
+        "android_client_info": {
+          "package_name": "ru.mkr.remainder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424153216652-svl8q46o33osjkcfusqf60n1ml1eu58u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.mkr.remainder",
+            "certificate_hash": "dc2a608448a7125ea422218ae1084a4846f8d67e"
+          }
+        },
+        {
+          "client_id": "424153216652-0t4h1sf3dla3olaslfhc0e9t778gbpts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1F3R_4qbBMnd53warnFZlWNSnD1Tph-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424153216652-0t4h1sf3dla3olaslfhc0e9t778gbpts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

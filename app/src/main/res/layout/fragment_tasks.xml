@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ScreenBg"
+    tools:context=".ui.screens.tasks.list.FragmentTasks">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tasks"
+        style="@style/Match"
+        tools:listitem="@layout/item_task"
+        tools:itemCount="12"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_task_add"
+        style="@style/Wrap"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/screen_padding"
+        android:layout_marginBottom="@dimen/screen_padding"
+        android:src="@drawable/ic_task_add" />
+
+</FrameLayout>
