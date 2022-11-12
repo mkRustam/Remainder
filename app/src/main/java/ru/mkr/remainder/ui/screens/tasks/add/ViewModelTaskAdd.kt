@@ -2,24 +2,27 @@ package ru.mkr.remainder.ui.screens.tasks.add
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.collect
 import ru.mkr.domain.entity.EntityTask
+import ru.mkr.domain.entity.Status
 import ru.mkr.domain.usecase.tasks.UseCaseTaskCreate
 import ru.mkr.domain.utils.annotations.IoDispatcher
 import ru.mkr.remainder.ui.base.BaseViewModel
+import ru.mkr.remainder.utils.alarm.ManagerAlarmTask
 import javax.inject.Inject
 
 @HiltViewModel
 class ViewModelTaskAdd @Inject constructor(
     private var useCaseTaskCreate: UseCaseTaskCreate,
+    private var managerAlarmTask: ManagerAlarmTask,
     @IoDispatcher private var dispatcher: CoroutineDispatcher
 ) : BaseViewModel<UiStateTaskAdd>(dispatcher) {
 
     fun addTask(task: EntityTask) {
         launch {
-            val taskCreateResult = useCaseTaskCreate.invoke(task)
+            val result = useCaseTaskCreate.invoke(task)
+            if(result.isSuccess() && result.data != null) managerAlarmTask.schedule(result.data!!)
             val state = UiStateTaskAdd.Builder()
-            state.taskAdd(taskCreateResult)
+            state.taskAdd(result)
             emitScreenState(state.build())
         }
     }

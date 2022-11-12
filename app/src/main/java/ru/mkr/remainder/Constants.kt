@@ -12,8 +12,4 @@ object Constants {
         const val ACTION_ALARM = "ACTION_ALARM"
     }
 
-    object Extras {
-        const val EXTRA_TASK = "extra_task"
-    }
-
 }

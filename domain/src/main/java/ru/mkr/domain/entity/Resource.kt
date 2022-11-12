@@ -14,4 +14,8 @@ data class Resource<out T>(val status: Status, val data: T?, val message: String
             return Resource(Status.LOADING, data, null)
         }
     }
+
+    fun isSuccess(): Boolean {
+        return Status.SUCCESS == status
+    }
 }

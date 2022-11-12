@@ -3,6 +3,7 @@ package ru.mkr.remainder.utils.alarm
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import com.google.gson.Gson
 import dagger.hilt.android.qualifiers.ApplicationContext
 import ru.mkr.domain.entity.EntityTask
@@ -30,7 +31,16 @@ class ManagerAlarmTask @Inject constructor(
         val reqCode = task.id.hashCode()
         val intent = Intent(context, ReceiverMain::class.java)
         intent.action = Constants.Actions.ACTION_ALARM
-        intent.putExtra(Constants.Extras.EXTRA_TASK, gson.toJson(task))
-        return PendingIntent.getBroadcast(context, reqCode, intent, PendingIntent.FLAG_CANCEL_CURRENT)
+        intent.putExtra(ReceiverMain.TASK, gson.toJson(task))
+
+        return PendingIntent.getBroadcast(context, reqCode, intent, getFlagsForTaskCreateIntent())
+    }
+
+    private fun getFlagsForTaskCreateIntent(): Int {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        } else {
+            PendingIntent.FLAG_UPDATE_CURRENT
+        }
     }
 }
