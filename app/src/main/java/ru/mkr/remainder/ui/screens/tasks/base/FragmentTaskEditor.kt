@@ -21,13 +21,13 @@ abstract class FragmentTaskEditor: BaseScreen<FragmentTaskEditBinding>() {
     }
 
     open fun init() {
-        _binding?.fieldTaskTitle?.setTitle(getString(R.string.field_title_name))
-        _binding?.fieldTaskDate?.setWithTime()?.setTitle(getString(R.string.field_title_date))
+        binding?.fieldTaskTitle?.setTitle(getString(R.string.field_title_name))
+        binding?.fieldTaskDate?.setWithTime()?.setTitle(getString(R.string.field_title_date))
 
-        _binding!!.button.setText(getButtonText())
-        _binding!!.button.setOnClickListener {
-            _binding?.fieldTaskTitle?.validate(true) { titleSuccess ->
-                if(titleSuccess) _binding?.fieldTaskDate?.validate(true) { dateSuccess ->
+        binding!!.button.setText(getButtonText())
+        binding!!.button.setOnClickListener {
+            binding?.fieldTaskTitle?.validate(true) { titleSuccess ->
+                if(titleSuccess) binding?.fieldTaskDate?.validate(true) { dateSuccess ->
                     if(dateSuccess) submitForm(createTask())
                 }
             }
@@ -36,10 +36,10 @@ abstract class FragmentTaskEditor: BaseScreen<FragmentTaskEditBinding>() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 
     private fun createTask(): EntityTask {
-        return EntityTask(taskId, _binding?.fieldTaskTitle?.getValue()!!, _binding?.fieldTaskDate?.getValue()!!)
+        return EntityTask(taskId, binding?.fieldTaskTitle?.getValue()!!, binding?.fieldTaskDate?.getValue()!!)
     }
 }

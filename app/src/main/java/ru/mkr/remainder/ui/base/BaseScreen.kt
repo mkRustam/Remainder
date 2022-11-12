@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import kotlinx.coroutines.CoroutineScope
@@ -26,7 +25,7 @@ abstract class BaseScreen<VB: ViewBinding>: Fragment(), IActivityCallback {
 //    https://github.com/AlexGladkov/JetpackNavigationDemo
 //    https://www.youtube.com/watch?v=fEGlZQcQZIA
 
-    protected var _binding: VB? = null
+    protected var binding: VB? = null
     private lateinit var screenLocker: UiLocker
 
     open fun getNavbar(): NavbarView? { return null }
@@ -40,14 +39,14 @@ abstract class BaseScreen<VB: ViewBinding>: Fragment(), IActivityCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = createViewBindingInstance(
+        binding = createViewBindingInstance(
             clazz = getViewBindingFromGeneric(),
             inflater = inflater,
             container = container,
             attachToRoot = false
         )
         screenLocker = requireActivity().findViewById(R.id.screen_locker)
-        return _binding?.root
+        return binding?.root
     }
 
     //region ******************** VIEW_BINDING *****************************************************
@@ -78,7 +77,7 @@ abstract class BaseScreen<VB: ViewBinding>: Fragment(), IActivityCallback {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 
     //endregion VIEW_BINDING

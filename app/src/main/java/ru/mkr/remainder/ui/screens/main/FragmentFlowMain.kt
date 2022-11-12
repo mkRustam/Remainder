@@ -18,6 +18,6 @@ class FragmentFlowMain : BaseScreen<FragmentFlowMainBinding>() {
     override fun onResume() {
         super.onResume()
         router.injectController((childFragmentManager.findFragmentById(R.id.nav_container_main) as NavHostFragment).navController)
-        _binding?.bottomNavView?.setupWithNavController(router.controller)
+        binding?.bottomNavView?.setupWithNavController(router.controller)
     }
 }

@@ -29,7 +29,7 @@ class FragmentProfile : BaseScreen<FragmentProfileBinding>() {
     }
 
     private fun initViews() {
-        _binding!!.buttonLogout.setOnClickListener {
+        binding!!.buttonLogout.setOnClickListener {
             viewModel.logout()
         }
     }

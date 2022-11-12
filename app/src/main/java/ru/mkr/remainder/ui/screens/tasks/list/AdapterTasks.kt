@@ -45,7 +45,7 @@ class AdapterTasks : RecyclerView.Adapter<TaskViewHolder>() {
 
     //endregion PUBLIC
 
-    class TaskViewHolder(var viewBinding: ItemTaskBinding, var listenerClick: ((TaskUiEntity) -> Unit)?) : RecyclerView.ViewHolder(viewBinding.root) {
+    class TaskViewHolder(var viewBinding: ItemTaskBinding, listenerClick: ((TaskUiEntity) -> Unit)?) : RecyclerView.ViewHolder(viewBinding.root) {
 
         private lateinit var task: TaskUiEntity
 

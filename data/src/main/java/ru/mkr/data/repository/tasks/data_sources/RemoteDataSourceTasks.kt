@@ -5,7 +5,7 @@ import ru.mkr.data.network.api.ApiRequests
 import ru.mkr.data.repository.tasks.api.entity.EntityApiTask
 import javax.inject.Inject
 
-class RemoteDataSourceTasks @Inject constructor(var retrofitApi: ApiRequests) : RemoteDataSourceBase() {
+class RemoteDataSourceTasks @Inject constructor(private var retrofitApi: ApiRequests) : RemoteDataSourceBase() {
 
     public suspend fun getAll() = getResult { retrofitApi.getAll() }
 

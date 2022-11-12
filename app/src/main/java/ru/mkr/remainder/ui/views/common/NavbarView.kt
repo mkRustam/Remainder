@@ -19,7 +19,7 @@ class NavbarView : FrameLayout {
     )
 
     public fun setTitle(text: String): NavbarView {
-        _binding.navbarTitle.setText(text)
+        _binding.navbarTitle.text = text
         return this
     }
 

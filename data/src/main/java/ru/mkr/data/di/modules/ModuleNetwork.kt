@@ -24,7 +24,7 @@ class ModuleNetwork {
     @Provides
     fun provideRetrofit(gson: Gson): Retrofit {
         val interceptor = HttpLoggingInterceptor()
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
         return Retrofit.Builder()

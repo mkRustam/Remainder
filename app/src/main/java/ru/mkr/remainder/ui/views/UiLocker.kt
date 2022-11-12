@@ -10,7 +10,7 @@ import ru.mkr.remainder.databinding.ViewScreenLockerBinding
 
 class UiLocker : FrameLayout {
 
-    protected var _binding = ViewScreenLockerBinding.inflate(LayoutInflater.from(context), this)
+    private var binding = ViewScreenLockerBinding.inflate(LayoutInflater.from(context), this)
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)

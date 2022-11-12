@@ -49,11 +49,11 @@ class DialogCalendarSingle(context: Context) : BaseDialog(context), OnDateSelect
 
     //region ******************** HELPERS **********************************************************
 
-    protected fun dateFromLocalDate(source: LocalDate): Calendar? {
+    private fun dateFromLocalDate(source: LocalDate): Calendar? {
         val calendar = Calendar.getInstance()
-        calendar[Calendar.YEAR] = source.getYear()
-        calendar[Calendar.MONTH] = source.getMonthValue() - 1
-        calendar[Calendar.DAY_OF_MONTH] = source.getDayOfMonth()
+        calendar[Calendar.YEAR] = source.year
+        calendar[Calendar.MONTH] = source.monthValue - 1
+        calendar[Calendar.DAY_OF_MONTH] = source.dayOfMonth
         return calendar
     }
 

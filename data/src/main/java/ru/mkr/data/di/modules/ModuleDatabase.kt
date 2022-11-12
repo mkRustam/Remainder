@@ -15,7 +15,7 @@ import javax.inject.Singleton
 class ModuleDatabase {
 
     companion object {
-        val DATABASE_NAME = "logging.db"
+        const val DATABASE_NAME = "logging.db"
     }
 
     @Provides

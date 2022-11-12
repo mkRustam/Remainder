@@ -29,7 +29,7 @@ class ManagerAlarmTask @Inject constructor(
     private fun createTaskIntent(task: EntityTask): PendingIntent {
         val reqCode = task.id.hashCode()
         val intent = Intent(context, ReceiverMain::class.java)
-        intent.setAction(Constants.Actions.ACTION_ALARM)
+        intent.action = Constants.Actions.ACTION_ALARM
         intent.putExtra(Constants.Extras.EXTRA_TASK, gson.toJson(task))
         return PendingIntent.getBroadcast(context, reqCode, intent, PendingIntent.FLAG_CANCEL_CURRENT)
     }

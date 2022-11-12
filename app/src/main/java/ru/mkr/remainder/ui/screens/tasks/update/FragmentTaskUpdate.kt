@@ -1,7 +1,6 @@
 package ru.mkr.remainder.ui.screens.tasks.update
 
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import ru.mkr.domain.entity.EntityTask
@@ -36,14 +35,14 @@ class FragmentTaskUpdate : FragmentTaskEditor() {
     }
 
     override fun getNavbar(): NavbarView? {
-        return _binding?.navbar
+        return binding?.navbar
     }
 
     private fun initTask(task: EntityTask?) {
         taskId = task?.id
         if(task != null) {
-            _binding?.fieldTaskTitle?.setValue(task.title)
-            _binding?.fieldTaskDate?.setSelectedDate(task.dateTime)
+            binding?.fieldTaskTitle?.setValue(task.title)
+            binding?.fieldTaskDate?.setSelectedDate(task.dateTime)
         }
         else toast(getString(R.string.task_not_found))
     }

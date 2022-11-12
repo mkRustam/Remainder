@@ -14,8 +14,8 @@ import ru.mkr.domain.repository.IRepositoryUser
 import javax.inject.Inject
 
 class RepositoryUser  @Inject constructor(
-    var auth: FirebaseAuth,
-    var mapperFirebaseUser: MapperFirebaseUser
+    private var auth: FirebaseAuth,
+    private var mapperFirebaseUser: MapperFirebaseUser
 ) : RepositoryBase(), IRepositoryUser {
 
     override suspend fun isAuthenticated() : Resource<Boolean> {

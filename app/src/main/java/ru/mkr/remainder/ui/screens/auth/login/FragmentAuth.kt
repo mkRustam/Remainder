@@ -32,20 +32,20 @@ class FragmentAuth: BaseScreen<FragmentAuthBinding>() {
     }
 
     private fun initViews() {
-        _binding?.fieldEmail?.setTitle(getString(R.string.field_title_email))
-        _binding?.fieldPassword?.setTitle(getString(R.string.field_title_password))
+        binding?.fieldEmail?.setTitle(getString(R.string.field_title_email))
+        binding?.fieldPassword?.setTitle(getString(R.string.field_title_password))
 
-        _binding!!.buttonSignIn.setOnClickListener {
-            _binding?.fieldEmail?.validate(true) { emailValid ->
-                if(emailValid) _binding?.fieldPassword?.validate(true) { passwordValid ->
+        binding!!.buttonSignIn.setOnClickListener {
+            binding?.fieldEmail?.validate(true) { emailValid ->
+                if(emailValid) binding?.fieldPassword?.validate(true) { passwordValid ->
                     if(passwordValid) {
                         lockScreen()
-                        viewModel.login(_binding?.fieldEmail?.getText()!!, _binding?.fieldPassword?.getText()!!)
+                        viewModel.login(binding?.fieldEmail?.getText()!!, binding?.fieldPassword?.getText()!!)
                     }
                 }
             }
         }
-        _binding!!.buttonRegister.setOnClickListener {
+        binding!!.buttonRegister.setOnClickListener {
             navigation.register()
         }
     }

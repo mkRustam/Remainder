@@ -41,7 +41,7 @@ class ActivityMain : BaseActivity(), IUiLocker {
     }
 
     override fun onBackPressed() {
-        val fragment = navHostFragment.childFragmentManager.fragments.get(0)
+        val fragment = navHostFragment.childFragmentManager.fragments[0]
         val eventHandled = (fragment as IActivityCallback?)?.onActivityBackPressed() ?: false
         if(!eventHandled) super.onBackPressed()
     }

@@ -44,22 +44,22 @@ class FragmentTaskDetail : BaseScreen<FragmentTaskDetailBinding>() {
     }
 
     override fun getNavbar(): NavbarView? {
-        return _binding?.navbar
+        return binding?.navbar
     }
 
     private fun initTask(task: EntityTask?) {
         if(task != null) {
-            _binding?.fieldTaskTitle?.setValue(task.title)
-            _binding?.fieldTaskDate?.setSelectedDate(task.dateTime)
+            binding?.fieldTaskTitle?.setValue(task.title)
+            binding?.fieldTaskDate?.setSelectedDate(task.dateTime)
         }
         else toast(getString(R.string.task_not_found))
     }
 
     private fun initButtons() {
-        _binding?.btnEdit?.setOnClickListener {
+        binding?.btnEdit?.setOnClickListener {
             navigation.taskUpdate(FragmentTaskUpdate.getBundle(taskId!!))
         }
-        _binding?.btnDelete?.setOnClickListener {
+        binding?.btnDelete?.setOnClickListener {
             lockScreen()
 //            viewModel.task.removeObservers(this@FragmentTaskDetail)
             viewModel.delete(taskId!!)
@@ -67,11 +67,11 @@ class FragmentTaskDetail : BaseScreen<FragmentTaskDetailBinding>() {
     }
 
     private fun initFields() {
-        _binding?.fieldTaskTitle?.setTitle(getString(R.string.field_title_name))
-        _binding?.fieldTaskTitle?.setReadOnly()
+        binding?.fieldTaskTitle?.setTitle(getString(R.string.field_title_name))
+        binding?.fieldTaskTitle?.setReadOnly()
 
-        _binding?.fieldTaskDate?.setTitle(getString(R.string.field_title_date))
-        _binding?.fieldTaskDate?.setReadOnly()
+        binding?.fieldTaskDate?.setTitle(getString(R.string.field_title_date))
+        binding?.fieldTaskDate?.setReadOnly()
     }
 
     private fun changeViewState(state: UiStateTaskDetail) {

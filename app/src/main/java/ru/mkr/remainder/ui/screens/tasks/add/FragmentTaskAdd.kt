@@ -27,7 +27,7 @@ class FragmentTaskAdd : FragmentTaskEditor() {
     }
 
     override fun getNavbar(): NavbarView? {
-        return _binding?.navbar
+        return binding?.navbar
     }
 
     override fun getButtonText(): Int = R.string.button_add
