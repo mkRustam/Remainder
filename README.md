@@ -1,6 +1,7 @@
 # Remainder
 
 TODO:
+0) Add one-time events support in viewModel with MutableSharedFlow(replay=0)
 1) Fix validation FieldInputText
 2) Handle FirebaseAuthRecentLoginRequiredException. https://firebase.google.com/docs/auth/android/manage-users#re-authenticate_a_user
 3) Add downloadable images for alert screen (do with work manager)
