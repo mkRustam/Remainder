@@ -1,6 +1,7 @@
 package ru.mkr.remainder.di.modules
 
 import android.app.AlarmManager
+import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -17,6 +18,7 @@ import ru.mkr.remainder.utils.activity_result_contracts.ContractBatteryOptimizat
 import ru.mkr.remainder.utils.alarm.ManagerAlarmTask
 import ru.mkr.remainder.utils.base.ManagerAlarm
 import ru.mkr.remainder.utils.base.ManagerPower
+import ru.mkr.remainder.utils.notification.ManagerNotification
 import javax.inject.Singleton
 
 @Module
@@ -25,7 +27,11 @@ class ModuleUtils {
 
     @Provides
     @Singleton
-    fun provideManagerAlarmTask(@ApplicationContext appContext: Context, managerAlarm: ManagerAlarm, gson: Gson): ITaskAlarmManager =
+    fun provideManagerAlarmTask(
+        @ApplicationContext appContext: Context,
+        managerAlarm: ManagerAlarm,
+        gson: Gson
+    ): ITaskAlarmManager =
         ManagerAlarmTask(appContext, managerAlarm, gson)
 
     @Provides
@@ -40,6 +46,16 @@ class ModuleUtils {
 
     @RequiresApi(Build.VERSION_CODES.M)
     @Provides
-    fun provideContractBatteryOptimization(powerManager: ManagerPower, packageManager: PackageManager) =
+    fun provideContractBatteryOptimization(
+        powerManager: ManagerPower,
+        packageManager: PackageManager
+    ) =
         ContractBatteryOptimizationIgnore(powerManager, packageManager)
+
+    @Provides
+    @Singleton
+    fun provideManagerNotification(
+        notificationManager: NotificationManager,
+        @ApplicationContext appContext: Context
+    ) = ManagerNotification(notificationManager, appContext)
 }

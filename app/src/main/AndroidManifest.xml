@@ -19,19 +19,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Remainder">
 
+        <activity
+            android:name=".ui.activity.ActivityAlarm"
+            android:exported="false">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <receiver
             android:name=".app.receiver.ReceiverMain"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="true" />
 
-        <activity android:name=".ui.activity.ActivityMain"
+        <activity
+            android:name=".ui.activity.ActivityMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

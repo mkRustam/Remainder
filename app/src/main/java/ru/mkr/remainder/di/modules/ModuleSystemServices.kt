@@ -1,6 +1,7 @@
 package ru.mkr.remainder.di.modules
 
 import android.app.AlarmManager
+import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.PowerManager
@@ -29,4 +30,9 @@ class ModuleSystemServices {
     @Singleton
     fun provideSystemServicePower(@ApplicationContext appContext: Context) =
         appContext.getSystemService(Context.POWER_SERVICE) as PowerManager
+
+    @Provides
+    @Singleton
+    fun provideSystemNotificationManager(@ApplicationContext appContext: Context) =
+        appContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 }
