@@ -1,4 +1,5 @@
 # Remainder
+MVVM, Coroutine, Room, ViewBinding, Retrofit, Clean architecture
 
 TODO:
 0) Add one-time events support in viewModel with MutableSharedFlow(replay=0)
