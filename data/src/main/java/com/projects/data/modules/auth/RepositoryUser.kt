@@ -1,5 +1,6 @@
 package com.projects.data.modules.auth
 
+import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -23,7 +24,9 @@ class RepositoryUser  @Inject constructor(
         return Resource.success(currentUser.data != null)
     }
 
-    override suspend fun login(email: String, pass: String) = handleAuthResult(auth.signInWithEmailAndPassword(email, pass))
+    override suspend fun login(email: String, pass: String): Resource<EntityUser> {
+        return handleAuthResult(auth.signInWithEmailAndPassword(email, pass))
+    }
 
     override suspend fun loginAnonymously(): Resource<EntityUser> {
         auth.signInAnonymously()
@@ -39,7 +42,9 @@ class RepositoryUser  @Inject constructor(
         return getCurrentUser()
     }
 
-    override suspend fun register(email: String, pass: String) = handleAuthResult(auth.createUserWithEmailAndPassword(email, pass))
+    override suspend fun register(email: String, pass: String): Resource<EntityUser> {
+        return handleAuthResult(auth.createUserWithEmailAndPassword(email, pass))
+    }
 
     private suspend fun handleAuthResult(task: Task<AuthResult>): Resource<EntityUser> {
         try {

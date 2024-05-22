@@ -25,7 +25,7 @@
                 android:id="@+id/field_task_date"
                 style="@style/MatchWidth" />
 
-            <androidx.legacy.widget.Space
+            <Space
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />

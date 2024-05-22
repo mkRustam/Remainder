@@ -39,14 +39,11 @@ dependencies {
     api(project(":utils"))
     api(project(":ui-palette"))
 
-    implementation(libs.calendar) {
-        exclude("com.android.support", module = "support-v4")
-        exclude("com.android.support", module = "appcompat-v7")
-    }
-    implementation(libs.threetenabp)
-
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
+    implementation(libs.calendar)
+    implementation(libs.threetenabp)
 
     testImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.1")

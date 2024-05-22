@@ -47,6 +47,8 @@ dependencies {
     //
     // Db
     implementation(libs.room)
+    implementation(libs.room.androidx.runtime)
+    kapt(libs.room.androidx.compiler)
 
     // Api
     api(libs.retrofit)
