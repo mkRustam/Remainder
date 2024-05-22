@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/flow_alert_graph"
+    app:startDestination="@id/fragmentAlarm">
+
+    <fragment
+        android:id="@+id/fragmentAlarm"
+        android:name="com.projects.remainder.ui.screens.auth.login.FragmentAuth"
+        android:label="FragmentAlarm" />
+</navigation>

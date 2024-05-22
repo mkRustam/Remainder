@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flow_task_graph"
+    app:startDestination="@id/fragmentTasks">
+    <fragment
+        android:id="@+id/fragmentTasks"
+        android:name="com.projects.remainder.ui.screens.tasks.list.FragmentTasks"
+        android:label="fragment_tasks"
+        tools:layout="@layout/fragment_tasks"/>
+    <fragment
+        android:id="@+id/fragmentTaskDetail"
+        android:name="com.projects.remainder.ui.screens.tasks.detail.FragmentTaskDetail"
+        android:label="FragmentTaskDetail"/>
+    <fragment
+        android:id="@+id/fragmentTaskUpdate"
+        android:name="com.projects.remainder.ui.screens.tasks.update.FragmentTaskUpdate"
+        android:label="FragmentTaskUpdate"/>
+    <fragment
+        android:id="@+id/fragmentTaskAdd"
+        android:name="com.projects.remainder.ui.screens.tasks.add.FragmentTaskAdd"
+        android:label="FragmentTaskAdd" />
+</navigation>

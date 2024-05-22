@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Remainder</string>
+
+    <string name="dialog_date_pick">Выберите дату</string>
+
+    <string name="bottom_nav_tab_tasks">Задачи</string>
+    <string name="bottom_nav_tab_profile">Профиль</string>
+
+
+
+    <string name="button_edit">Редактировать</string>
+    <string name="button_add">Добавить</string>
+    <string name="button_save">Сохранить</string>
+    <string name="button_login">Войти</string>
+    <string name="button_register">Зарегистрироваться</string>
+    <string name="button_delete">Удалить</string>
+    <string name="button_logout">Выйти</string>
+
+    <string name="screen_title_task_new">Новое задание</string>
+    <string name="screen_title_task_detail">Описание задания</string>
+    <string name="screen_title_task_update">Редактирование задания</string>
+
+    <string name="task_not_found">Задача не найдена</string>
+
+
+    <string name="dialog_calendar_select">Выбрать</string>
+    <string name="dialog_calendar_cancel">Отмена</string>
+    <string name="dialog_time_select">Выбрать</string>
+    <string name="dialog_time_cancel">Отмена</string>
+
+    <string name="field_error_required">Обязательное поле</string>
+    <string name="field_title_date">Дата</string>
+    <string name="field_title_name">Название</string>
+    <string name="field_title_email">Email</string>
+    <string name="field_title_password">Пароль</string>
+
+</resources>

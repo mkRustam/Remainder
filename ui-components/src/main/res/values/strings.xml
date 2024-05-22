@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_calendar_select">Выбрать</string>
+    <string name="dialog_calendar_cancel">Отмена</string>
+    <string name="dialog_time_select">Выбрать</string>
+    <string name="dialog_time_cancel">Отмена</string>
+
+    <string name="field_error_required">Обязательное поле</string>
+    <string name="field_title_date">Дата</string>
+    <string name="field_title_name">Название</string>
+    <string name="field_title_email">Email</string>
+    <string name="field_title_password">Пароль</string>
+</resources>

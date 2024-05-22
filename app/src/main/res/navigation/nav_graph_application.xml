@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_application"
+    app:startDestination="@id/fragmentSplash">
+
+    <fragment
+        android:id="@+id/fragmentSplash"
+        android:name="com.projects.remainder.ui.screens.splash.FragmentSplash"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_fragmentSplash_to_fragmentAuth"
+            app:destination="@id/fragmentAuth"
+            app:popUpTo="@id/fragmentSplash"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_fragmentSplash_to_fragmentFlowMain"
+            app:destination="@id/fragmentFlowMain"
+            app:popUpTo="@id/fragmentSplash"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAuth"
+        android:name="com.projects.remainder.ui.screens.auth.login.FragmentAuth"
+        android:label="FragmentAuth">
+        <action
+            android:id="@+id/action_fragmentAuth_to_fragmentFlowMain"
+            app:destination="@id/fragmentFlowMain"
+            app:popUpTo="@id/fragmentAuth"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAuthRegister"
+        android:name="com.projects.remainder.ui.screens.auth.register.FragmentAuthRegister"
+        android:label="FragmentAuthRegister">
+        <action
+            android:id="@+id/action_fragmentAuthRegister_to_fragmentFlowMain"
+            app:destination="@id/fragmentFlowMain"
+            app:popUpTo="@id/fragmentAuth"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFlowMain"
+        android:name="com.projects.remainder.ui.screens.main.FragmentFlowMain"
+        android:label="FragmentFlowMain" />
+
+    <action
+        android:id="@+id/action_global_fragmentAuth"
+        app:destination="@id/fragmentAuth"
+        />
+
+</navigation>
