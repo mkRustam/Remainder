@@ -35,8 +35,6 @@ abstract class FieldInputBase<TValue>: FrameLayout {
     protected abstract fun initField()
     protected abstract fun toValue(text: String?): TValue?
 
-    //region ******************** OPTIONS **********************************************************
-
     fun setOptional() {
         this.optional = true
     }
@@ -88,10 +86,6 @@ abstract class FieldInputBase<TValue>: FrameLayout {
         return this
     }
 
-    //endregion OPTIONS
-
-    //region ******************** GETTERS **********************************************************
-
     fun getValue(): TValue? {
         return _binding.root.tag as TValue?
     }
@@ -99,10 +93,6 @@ abstract class FieldInputBase<TValue>: FrameLayout {
     fun getText(): String? {
         return _binding.fieldInputTextValue.text?.toString()
     }
-
-    //endregion GETTERS
-
-    //region ******************** ACTIONS **********************************************************
 
     fun validate(showError: Boolean, resultListener: ((Boolean) -> Unit)?) {
         when {
@@ -120,10 +110,6 @@ abstract class FieldInputBase<TValue>: FrameLayout {
             }
         }
     }
-
-    //endregion ACTIONS
-
-    //region ******************** INIT *************************************************************
 
     init {
         initListeners()
@@ -151,10 +137,6 @@ abstract class FieldInputBase<TValue>: FrameLayout {
         _binding.fieldInputTextValue.addTextChangedListener(textChangeListener)
         _binding.fieldInputTextValue.onFocusChangeListener = focusChangeListener
     }
-
-    //endregion INIT
-
-    //region ******************** HELPERS **********************************************************
 
     private fun validationResult(success: Boolean, showError: Boolean, errorResId: Int?, listener: ((Boolean) -> Unit)?) {
         if(success) errorHide()
@@ -185,8 +167,6 @@ abstract class FieldInputBase<TValue>: FrameLayout {
         if(show) visible(v)
         else gone(v)
     }
-
-    //endregion HELPERS
 
     data class ValidatorResult(var success: Boolean, var errorResId: Int?)
 }

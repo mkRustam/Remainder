@@ -17,8 +17,6 @@ class DialogCalendarSingle(context: Context) : BaseDialog(context), OnDateSelect
     private var selectedDate: Calendar? = null
     private var dateToInit: Date? = null
 
-    //region ******************** OPTIONS **********************************************************
-
     fun setFinishListener(finishListener: (Calendar) -> Unit): DialogCalendarSingle {
         this.finishListener = finishListener
         return this
@@ -29,10 +27,6 @@ class DialogCalendarSingle(context: Context) : BaseDialog(context), OnDateSelect
         this.dateToInit = date
         return this
     }
-
-    //endregion OPTIONS
-
-    //region ******************** OVERRIDES ********************************************************
 
     override fun getLayoutId(): Int = R.layout.dialog_calendar
 
@@ -56,6 +50,4 @@ class DialogCalendarSingle(context: Context) : BaseDialog(context), OnDateSelect
     override fun onDateSelected(widget: MaterialCalendarView, date: CalendarDay, selected: Boolean) {
         selectedDate = date.date.toCalendar()
     }
-
-    //endregion OVERRIDES
 }

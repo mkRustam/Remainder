@@ -32,18 +32,18 @@ class ActivityMain : BaseActivity(), IUiLocker {
         router.injectController(findController())
     }
 
+    override fun onBackPressed() {
+        val fragment = navHostFragment.childFragmentManager.fragments[0]
+        val eventHandled = (fragment as IActivityCallback?)?.onActivityBackPressed() ?: false
+        if(!eventHandled) super.onBackPressed()
+    }
+
     override fun lock() {
         screenLocker.lock()
     }
 
     override fun unlock() {
         screenLocker.unlock()
-    }
-
-    override fun onBackPressed() {
-        val fragment = navHostFragment.childFragmentManager.fragments[0]
-        val eventHandled = (fragment as IActivityCallback?)?.onActivityBackPressed() ?: false
-        if(!eventHandled) super.onBackPressed()
     }
 
     private fun findController(): NavController {

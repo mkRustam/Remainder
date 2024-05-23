@@ -12,8 +12,6 @@ class AdapterTasks : RecyclerView.Adapter<TaskViewHolder>() {
     private var tasks: List<TaskUiEntity> = ArrayList()
     private var listenerClick: ((TaskUiEntity) -> Unit)? = null
 
-    //region ******************** OVERRIDE *********************************************************
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding: ItemTaskBinding = ItemTaskBinding.inflate(inflater, parent, false)
@@ -29,10 +27,6 @@ class AdapterTasks : RecyclerView.Adapter<TaskViewHolder>() {
         return tasks.size
     }
 
-    //endregion OVERRIDE
-
-    //region ******************** PUBLIC ***********************************************************
-
     fun setTasks(tasks: List<TaskUiEntity>?) {
         if(tasks == null) this.tasks = ArrayList()
         else this.tasks = tasks
@@ -42,8 +36,6 @@ class AdapterTasks : RecyclerView.Adapter<TaskViewHolder>() {
     fun setClickListener(listener: (TaskUiEntity) -> Unit) {
         this.listenerClick = listener
     }
-
-    //endregion PUBLIC
 
     class TaskViewHolder(var viewBinding: ItemTaskBinding, listenerClick: ((TaskUiEntity) -> Unit)?) : RecyclerView.ViewHolder(viewBinding.root) {
 

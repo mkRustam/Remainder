@@ -49,7 +49,10 @@ abstract class BaseScreen<VB: ViewBinding>: Fragment(), IActivityCallback {
         return binding?.root
     }
 
-    //region ******************** VIEW_BINDING *****************************************************
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
 
     private fun createViewBindingInstance(
         clazz: Class<VB>,
@@ -75,14 +78,7 @@ abstract class BaseScreen<VB: ViewBinding>: Fragment(), IActivityCallback {
         else getBindingClass(clazz.superclass)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
-    }
-
-    //endregion VIEW_BINDING
-
-    inline fun Fragment.launch(
+    protected inline fun Fragment.launch(
         minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
         crossinline block: suspend CoroutineScope.() -> Unit
     ) {

@@ -5,8 +5,7 @@ import com.projects.remainder.ui.screens.profile.NavigationProfile
 import javax.inject.Inject
 
 class NavigationProfileImpl @Inject constructor(
-    private val router: Router,
-    private val routerMainScreen: RouterMainScreen
+    private val router: Router
 ) : NavigationProfile {
     override fun logout() {
         router.resetNavigation()
