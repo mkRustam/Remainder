@@ -17,7 +17,7 @@ class UseCaseUserLogin @Inject constructor(
         return repositoryUser.login(parameters.login, parameters.password)
     }
 
-    public data class Params(
+    data class Params(
         var login: String,
         var password: String
     )

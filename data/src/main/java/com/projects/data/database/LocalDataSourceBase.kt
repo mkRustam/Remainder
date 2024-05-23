@@ -7,7 +7,7 @@ import java.util.*
 abstract class LocalDataSourceBase {
 
     protected fun <T : EntityDb> makeExpire(data: T) {
-        data._timestamp = Calendar.getInstance(TimeZone.getTimeZone(Constants.App.DB_TIME_ZONE)).timeInMillis
+        data.timeStamp = Calendar.getInstance(TimeZone.getTimeZone(Constants.App.DB_TIME_ZONE)).timeInMillis
     }
 
     protected fun <T : EntityDb> makeExpireList(dataList: List<T>) {

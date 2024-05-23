@@ -3,9 +3,9 @@
     <item
         android:id="@+id/flow_task_graph"
         android:icon="@drawable/ic_nav_tasks"
-        android:title="Tasks" />
+        android:title="@string/bottom_nav_tab_tasks" />
     <item
         android:id="@+id/flow_profile_graph"
         android:icon="@drawable/ic_nav_profile"
-        android:title="Profile" />
+        android:title="@string/bottom_nav_tab_profile" />
 </menu>

@@ -9,7 +9,7 @@ open class Router @Inject constructor() {
     lateinit var controller: NavController
 
     fun injectController(controller: NavController) {
-        this.controller = controller;
+        this.controller = controller
     }
 
     fun navigate(@IdRes action: Int) {

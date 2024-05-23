@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface DaoTasks {
     @Query("SELECT * FROM tasks")
-    fun getAll(): Flow<List<EntityDbTask>>
+    fun observeAll(): Flow<List<EntityDbTask>>
 
     @Query("SELECT * FROM tasks WHERE id=:id")
-    fun get(id: String): Flow<EntityDbTask>
+    fun observeById(id: String): Flow<EntityDbTask>
 
     @Deprecated(message = "Use insertOrUpdate", replaceWith = ReplaceWith("insertOrUpdate(task)"))
     @Insert(onConflict = OnConflictStrategy.REPLACE)

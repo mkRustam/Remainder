@@ -66,7 +66,7 @@ class FragmentTasks : BaseScreen<FragmentTasksBinding>() {
         if(tasks.status == Status.ERROR) {
             if(tasks.data != null) Log.d("App", "${this.javaClass.simpleName} [error] message")
             else {
-                adapterTasks.setTasks(tasks.data)
+                adapterTasks.setTasks(null)
                 Log.d("App", "${this.javaClass.simpleName} [error] view")
             }
         }

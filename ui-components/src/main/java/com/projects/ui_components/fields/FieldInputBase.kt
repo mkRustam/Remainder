@@ -13,9 +13,7 @@ import com.projects.ui_components.databinding.ViewFieldInputTextBinding
 
 abstract class FieldInputBase<TValue>: FrameLayout {
 
-    private val ERROR_EMPTY = R.string.field_error_required
-
-    protected var _binding: ViewFieldInputTextBinding = ViewFieldInputTextBinding.inflate(LayoutInflater.from(context), this, true)
+    protected var binding: ViewFieldInputTextBinding = ViewFieldInputTextBinding.inflate(LayoutInflater.from(context), this, true)
 
     private var optional = false
     private var validateByInput = false
@@ -40,12 +38,12 @@ abstract class FieldInputBase<TValue>: FrameLayout {
     }
 
     fun setValue(text: String?, value: TValue? = null, validate: Boolean = true) {
-        _binding.fieldInputTextValue.setText(text)
+        binding.fieldInputTextValue.setText(text)
         setValue(value ?: toValue(text), validate)
     }
 
     fun setValue(value: TValue?, validate: Boolean) {
-        _binding.fieldInputText.tag = value
+        binding.fieldInputText.tag = value
         if(validate) validate(true, validationResult)
     }
 
@@ -62,17 +60,17 @@ abstract class FieldInputBase<TValue>: FrameLayout {
      * Отключает фокусировку
      */
     fun setNoFocusable() {
-        _binding.fieldInputTextValue.isFocusable = false
-        _binding.fieldInputTextValue.isCursorVisible = false
-        _binding.fieldInputTextValue.isLongClickable = false
-        _binding.fieldInputTextValue.isFocusableInTouchMode = false
-        _binding.fieldInputTextValue.removeTextChangedListener(textChangeListener)
-        _binding.fieldInputTextValue.onFocusChangeListener = null
-        _binding.fieldInputTextValue.isClickable = false
+        binding.fieldInputTextValue.isFocusable = false
+        binding.fieldInputTextValue.isCursorVisible = false
+        binding.fieldInputTextValue.isLongClickable = false
+        binding.fieldInputTextValue.isFocusableInTouchMode = false
+        binding.fieldInputTextValue.removeTextChangedListener(textChangeListener)
+        binding.fieldInputTextValue.onFocusChangeListener = null
+        binding.fieldInputTextValue.isClickable = false
     }
 
     fun setClickListener(listener: OnClickListener?) {
-        _binding.fieldInputTextValue.setOnClickListener(listener)
+        binding.fieldInputTextValue.setOnClickListener(listener)
     }
 
     fun validateByInput(validationResult: (Boolean) -> Unit) {
@@ -81,17 +79,17 @@ abstract class FieldInputBase<TValue>: FrameLayout {
     }
 
     fun setTitle(title: String?): FieldInputBase<TValue> {
-        _binding.fieldInputTextTitle.text = title
-        visible(_binding.fieldInputTextTitle, !title.isNullOrEmpty())
+        binding.fieldInputTextTitle.text = title
+        visible(binding.fieldInputTextTitle, !title.isNullOrEmpty())
         return this
     }
 
     fun getValue(): TValue? {
-        return _binding.root.tag as TValue?
+        return binding.root.tag as TValue?
     }
 
     fun getText(): String? {
-        return _binding.fieldInputTextValue.text?.toString()
+        return binding.fieldInputTextValue.text?.toString()
     }
 
     fun validate(showError: Boolean, resultListener: ((Boolean) -> Unit)?) {
@@ -116,8 +114,8 @@ abstract class FieldInputBase<TValue>: FrameLayout {
         initField()
 
         // handle init value
-        _binding.fieldInputTextValue.post {
-            setValue(toValue(_binding.fieldInputTextValue.text?.toString()), false)
+        binding.fieldInputTextValue.post {
+            setValue(toValue(binding.fieldInputTextValue.text?.toString()), false)
         }
     }
 
@@ -134,8 +132,8 @@ abstract class FieldInputBase<TValue>: FrameLayout {
 
         focusChangeListener = OnFocusChangeListener { _, hasFocus -> if(!hasFocus) validate(true, null) }
 
-        _binding.fieldInputTextValue.addTextChangedListener(textChangeListener)
-        _binding.fieldInputTextValue.onFocusChangeListener = focusChangeListener
+        binding.fieldInputTextValue.addTextChangedListener(textChangeListener)
+        binding.fieldInputTextValue.onFocusChangeListener = focusChangeListener
     }
 
     private fun validationResult(success: Boolean, showError: Boolean, errorResId: Int?, listener: ((Boolean) -> Unit)?) {
@@ -145,13 +143,13 @@ abstract class FieldInputBase<TValue>: FrameLayout {
     }
 
     private fun errorShow(errorResId: Int) {
-        visible(_binding.fieldInputTextError)
-        _binding.fieldInputTextError.setText(errorResId)
+        visible(binding.fieldInputTextError)
+        binding.fieldInputTextError.setText(errorResId)
         // todo [Красное подчеркивание] Отобразить
     }
 
     private fun errorHide() {
-        gone(_binding.fieldInputTextError)
+        gone(binding.fieldInputTextError)
         // todo [Красное подчеркивание] Сбросить
     }
 
@@ -169,4 +167,8 @@ abstract class FieldInputBase<TValue>: FrameLayout {
     }
 
     data class ValidatorResult(var success: Boolean, var errorResId: Int?)
+
+    companion object {
+        private val ERROR_EMPTY = R.string.field_error_required
+    }
 }

@@ -12,13 +12,13 @@ import java.lang.Exception
 abstract class LocalDataStrategy<Db, Domain, Request: LoadRequest>: IDataStrategy<Domain, Request> {
 
     @WorkerThread
-    public abstract suspend fun fetchFromLocal(request: Request): Flow<Db?>
+    protected abstract suspend fun fetchFromLocal(request: Request): Flow<Db?>
 
     @WorkerThread
-    public abstract suspend fun mapDbData(request: Request, data: Db?): Domain?
+    protected abstract suspend fun mapDbData(request: Request, data: Db?): Domain?
 
     @WorkerThread
-    public abstract suspend fun isActualData(data: Db): Boolean
+    protected abstract suspend fun isActualData(data: Db): Boolean
 
     override fun execute(request: Request): Flow<Resource<Domain>> = flow {
         try {

@@ -26,7 +26,7 @@ class TaskLoadStrategy @Inject constructor(
         TaskRequest>() {
 
     override suspend fun fetchFromLocal(request: TaskRequest): Flow<EntityDbTask?> {
-        return localDataSource.get(request.taskId)
+        return localDataSource.observeById(request.taskId)
     }
 
     override suspend fun mapDbData(request: TaskRequest, data: EntityDbTask?): EntityTask? {

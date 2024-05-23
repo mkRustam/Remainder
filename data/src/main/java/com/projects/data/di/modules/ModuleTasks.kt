@@ -21,7 +21,7 @@ class ModuleTasks {
 
     @Provides
     @Singleton
-    fun provideTasksDao(database: AppDatabase) = database.tasksDao();
+    fun provideTasksDao(database: AppDatabase) = database.tasksDao()
 
     @Provides
     @Singleton

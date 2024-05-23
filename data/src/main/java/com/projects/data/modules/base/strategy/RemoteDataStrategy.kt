@@ -12,13 +12,13 @@ import java.lang.Exception
 abstract class RemoteDataStrategy<Db, Domain, Api, Request: LoadRequest>: IDataStrategy<Domain, Request> {
 
     @WorkerThread
-    public abstract suspend fun fetchFromRemote(request: Request): Resource<Api?>
+    abstract suspend fun fetchFromRemote(request: Request): Resource<Api?>
 
     @WorkerThread
-    public abstract suspend fun mapApiData(request: Request, data: Api?): Db?
+    abstract suspend fun mapApiData(request: Request, data: Api?): Db?
 
     @WorkerThread
-    public abstract suspend fun mapDbData(request: Request, data: Db?): Domain?
+    abstract suspend fun mapDbData(request: Request, data: Db?): Domain?
 
     override fun execute(request: Request): Flow<Resource<Domain>> = flow {
         try {

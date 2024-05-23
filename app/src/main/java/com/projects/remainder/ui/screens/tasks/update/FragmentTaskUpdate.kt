@@ -39,6 +39,7 @@ class FragmentTaskUpdate : FragmentTaskEditor() {
     }
 
     private fun initTask(task: EntityTask?) {
+        // TODO Почему мы тут сетаем id, он же уже приходит в argString?
         taskId = task?.id
         if(task != null) {
             binding?.fieldTaskTitle?.setValue(task.title)

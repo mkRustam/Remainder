@@ -2,7 +2,6 @@ package com.projects.remainder.ui.screens.auth.register
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.collect
 import com.projects.domain.usecase.auth.UseCaseUserRegister
 import com.projects.domain.utils.annotations.IoDispatcher
 import com.projects.remainder.ui.base.BaseViewModel
