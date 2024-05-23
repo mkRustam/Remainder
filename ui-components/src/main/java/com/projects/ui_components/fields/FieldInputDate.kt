@@ -23,8 +23,6 @@ class FieldInputDate : FieldInputBase<Date> {
         defStyleAttr
     )
 
-    //region ******************** OPTIONS **********************************************************
-
     fun setSelectedDate(selectedDate: Date?) {
         if(selectedDate != null) this.selectedDate.timeInMillis = selectedDate.time
         updateFieldValue()
@@ -38,10 +36,6 @@ class FieldInputDate : FieldInputBase<Date> {
         this.withTime = true
         return this
     }
-
-    //endregion OPTIONS
-
-    //region ******************** OVERRIDE *********************************************************
 
     override fun initField() {
         setNoFocusable()
@@ -65,10 +59,6 @@ class FieldInputDate : FieldInputBase<Date> {
     override fun toValue(text: String?): Date? {
         return if(!text.isNullOrEmpty()) text.toDefaultDate() else null
     }
-
-    //endregion OVERRIDE
-
-    //region ******************** HELPERS **********************************************************
 
     private fun showDatePicker(finishListener: (Calendar) -> Unit) {
         DialogCalendarSingle(context)
@@ -97,7 +87,4 @@ class FieldInputDate : FieldInputBase<Date> {
         selectedDate.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE))
         selectedDate.set(Calendar.SECOND, 0)
     }
-
-    //endregion HELPERS
-
 }

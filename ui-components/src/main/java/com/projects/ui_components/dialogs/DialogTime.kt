@@ -14,8 +14,6 @@ class DialogTime(context: Context) : BaseDialog(context) {
     private var selectedTime: Calendar = Calendar.getInstance()
     private var timeToInit: Date? = null
 
-    //region ******************** OPTIONS **********************************************************
-
     fun setFinishListener(finishListener: (Calendar) -> Unit): DialogTime {
         this.finishListener = finishListener
         return this
@@ -26,10 +24,6 @@ class DialogTime(context: Context) : BaseDialog(context) {
         this.timeToInit = time
         return this
     }
-
-    //endregion OPTIONS
-
-    //region ******************** OVERRIDE *********************************************************
 
     override fun getLayoutId(): Int = R.layout.dialog_time
 
@@ -52,7 +46,4 @@ class DialogTime(context: Context) : BaseDialog(context) {
             timePicker.currentMinute = time.minutes
         }
     }
-
-    //endregion OVERRIDE
-
 }

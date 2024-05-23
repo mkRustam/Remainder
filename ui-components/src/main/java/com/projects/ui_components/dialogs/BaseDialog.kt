@@ -12,13 +12,9 @@ abstract class BaseDialog(val context: Context) {
 
     private var dialog: Dialog
 
-    //region ******************** PROTECTED ********************************************************
-
     protected fun getTheme() = R.style.BaseDialog
     @LayoutRes protected abstract fun getLayoutId(): Int
     protected abstract fun initDialog()
-
-    //endregion PROTECTED
 
     init {
         dialog = create()
@@ -49,11 +45,7 @@ abstract class BaseDialog(val context: Context) {
         return dialog
     }
 
-    //region ******************** HELPERS **********************************************************
-
     protected fun <T : View> findView(id: Int): T {
         return dialog.findViewById(id)
     }
-
-    //endregion HELPERS
 }
