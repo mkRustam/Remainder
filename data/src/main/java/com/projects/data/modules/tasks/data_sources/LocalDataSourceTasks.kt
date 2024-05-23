@@ -8,9 +8,9 @@ import javax.inject.Inject
 
 class LocalDataSourceTasks @Inject constructor(var daoTasks: DaoTasks) : LocalDataSourceBase() {
 
-    suspend fun getAll() = daoTasks.getAll()
+    fun observeAll() = daoTasks.observeAll()
 
-    fun get(id: String) = daoTasks.get(id).distinctUntilChanged()
+    fun observeById(id: String) = daoTasks.observeById(id).distinctUntilChanged()
 
     suspend fun add(task: EntityDbTask) {
         makeExpire(task)

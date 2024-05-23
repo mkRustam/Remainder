@@ -2,7 +2,6 @@ package com.projects.remainder.ui.screens.tasks.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.collect
 import com.projects.domain.entity.Resource
 import com.projects.domain.usecase.tasks.UseCaseTasksLoad
 import com.projects.domain.utils.annotations.IoDispatcher

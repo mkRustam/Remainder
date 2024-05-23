@@ -22,7 +22,7 @@ class UiLocker : FrameLayout {
 
     private fun init() {
         visibility = GONE
-        setOnTouchListener { v: View?, event: MotionEvent? -> true }
+        setOnTouchListener { _: View?, _: MotionEvent? -> true }
     }
 
     fun lock() {

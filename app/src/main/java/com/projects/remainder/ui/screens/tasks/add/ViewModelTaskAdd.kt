@@ -3,7 +3,6 @@ package com.projects.remainder.ui.screens.tasks.add
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import com.projects.domain.entity.EntityTask
-import com.projects.domain.entity.Status
 import com.projects.domain.usecase.tasks.UseCaseTaskCreate
 import com.projects.domain.utils.annotations.IoDispatcher
 import com.projects.remainder.ui.base.BaseViewModel

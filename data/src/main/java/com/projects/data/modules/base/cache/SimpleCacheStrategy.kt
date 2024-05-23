@@ -7,7 +7,7 @@ import java.util.*
 class SimpleCacheStrategy(@CachePeriod var cachePeriod: Long) : CacheStrategy {
 
     override fun isRelevant(data: EntityDb): Boolean {
-        val cachedAt = data._timestamp
+        val cachedAt = data.timeStamp
         val currentTime = Calendar.getInstance(TimeZone.getTimeZone(Constants.App.DB_TIME_ZONE)).timeInMillis
         if(cachedAt != null) return currentTime < cachedAt + cachePeriod
         else return true

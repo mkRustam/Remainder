@@ -27,7 +27,7 @@ class TaskAddStrategy @Inject constructor(
     override suspend fun handleResult(request: TaskAddRequest, data: EntityApiTask?): EntityTask? {
         if(data != null) {
             localDataSource.add(mapper.fromApiToDb(data))
-            val dbData = localDataSource.get(data._id!!).first()
+            val dbData = localDataSource.observeById(data._id!!).first()
             return mapper.fromDbToDomain(dbData)
         }
         return null

@@ -8,10 +8,10 @@ import com.projects.domain.entity.Status
 abstract class ActionDataStrategy<Domain, Api, Request: LoadRequest>: IRequestDataStrategy<Domain, Request> {
 
     @WorkerThread
-    public abstract suspend fun fetchFromRemote(request: Request): Resource<Api?>
+    protected abstract suspend fun fetchFromRemote(request: Request): Resource<Api?>
 
     @WorkerThread
-    public abstract suspend fun handleResult(request: Request, data: Api?): Domain?
+    protected abstract suspend fun handleResult(request: Request, data: Api?): Domain?
 
     override suspend fun execute(request: Request): Resource<Domain> {
         val apiResult = fetchFromRemote(request)

@@ -23,11 +23,11 @@ class TaskUpdateStrategy @Inject constructor(
         return remoteDataSource.update(request.taskId, request.task)
     }
 
-    override suspend fun handleResult(request: TaskUpdateRequest, data: Unit?): EntityTask? {
+    override suspend fun handleResult(request: TaskUpdateRequest, data: Unit?): EntityTask {
         val taskApi = request.task
         taskApi._id = request.taskId
         localDataSource.add(mapperTask.fromApiToDb(taskApi))
-        val taskDb = localDataSource.get(request.taskId).first()
+        val taskDb = localDataSource.observeById(request.taskId).first()
         return mapperTask.fromDbToDomain(taskDb)
     }
 }

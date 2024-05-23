@@ -68,7 +68,6 @@ abstract class BaseScreen<VB: ViewBinding>: Fragment(), IActivityCallback {
         ).invoke(clazz, inflater, container, attachToRoot) as VB
     }
 
-    @Suppress("UNCHECKED_CAST")
     private fun getViewBindingFromGeneric(): Class<VB> {
         return getBindingClass(javaClass)
     }

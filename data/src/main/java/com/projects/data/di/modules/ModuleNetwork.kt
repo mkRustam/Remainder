@@ -29,7 +29,7 @@ class ModuleNetwork {
 
         return Retrofit.Builder()
             .client(client)
-            .baseUrl("https://crudcrud.com/api/d54a80cb8ed64f77997ffb1e3f3c6c84/")
+            .baseUrl("https://crudcrud.com/api/ccf006bee78a4d58ad48741af3940b61/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }

@@ -4,9 +4,7 @@ import android.app.AlarmManager
 import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.PowerManager
-import androidx.annotation.RequiresApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,7 +40,6 @@ class ModuleUtils {
     fun provideManagerPower(powerManager: PowerManager) =
         ManagerPower(powerManager)
 
-    @RequiresApi(Build.VERSION_CODES.M)
     @Provides
     fun provideContractBatteryOptimization(
         powerManager: ManagerPower,

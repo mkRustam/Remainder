@@ -9,5 +9,5 @@ class EntityDbTask(
     @PrimaryKey val id: String,
     val title: String,
     val dateTime: Long,
-    _timestamp: Long? = null
-): EntityDb(_timestamp)
+    timeStamp: Long? = null
+): EntityDb(timeStamp)
