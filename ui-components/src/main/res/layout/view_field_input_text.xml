@@ -8,17 +8,20 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/field_input_text_title"
         style="@style/Wrap"
+        android:includeFontPadding="false"
         android:visibility="gone"
         tools:text="Заголовок"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/field_input_text_value"
+        android:includeFontPadding="false"
         style="@style/MatchWidth" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/field_input_text_caption"
         style="@style/Wrap"
+        android:includeFontPadding="false"
         android:visibility="gone"
         tools:text="Подзаголовок"
         tools:visibility="visible" />
@@ -26,6 +29,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/field_input_text_error"
         style="@style/Wrap"
+        android:includeFontPadding="false"
         android:visibility="gone"
         tools:text="Текст ошибки"
         tools:visibility="visible" />

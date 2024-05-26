@@ -53,6 +53,7 @@ abstract class FieldInputBase<TValue>: FrameLayout {
 
     fun setReadOnly() {
         setNoFocusable()
+        binding.fieldInputTextValue.setBackgroundResource(android.R.color.transparent)
     }
 
     /**
