@@ -6,6 +6,8 @@ import com.projects.domain.usecase.tasks.UseCaseTaskDelete
 import com.projects.domain.usecase.tasks.UseCaseTaskDetail
 import com.projects.domain.utils.annotations.IoDispatcher
 import com.projects.remainder.ui.base.BaseViewModel
+import com.projects.remainder.ui.mappers.utils.DateTimeUiMapper
+import java.util.Date
 import java.util.concurrent.atomic.AtomicInteger
 import javax.inject.Inject
 
@@ -13,6 +15,7 @@ import javax.inject.Inject
 class ViewModelTaskDetail @Inject constructor(
     private var useCaseTaskDelete: UseCaseTaskDelete,
     private var useCaseTaskDetail: UseCaseTaskDetail,
+    private var dateTimeUiMapper: DateTimeUiMapper,
     @IoDispatcher private var dispatcher: CoroutineDispatcher
 ) : BaseViewModel<UiStateTaskDetail>(dispatcher) {
 
@@ -41,6 +44,10 @@ class ViewModelTaskDetail @Inject constructor(
             }
         }
     }
+
+    fun convertDateToString(date: Date): String = dateTimeUiMapper.map(date)
+
+    fun convertStringToDate(string: String): Date = dateTimeUiMapper.map(string)
 
     override fun getInitScreenState(): UiStateTaskDetail = UiStateTaskDetail.Builder()
         .build()

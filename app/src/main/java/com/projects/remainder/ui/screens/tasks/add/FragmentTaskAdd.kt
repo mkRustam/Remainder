@@ -23,6 +23,15 @@ class FragmentTaskAdd : FragmentTaskEditor() {
         super.init()
         initNavBar(getString(R.string.screen_title_task_new))
 
+        binding?.fieldTaskDate?.let {
+            it.setWithTime()
+            it.setTitle(getString(R.string.field_title_date))
+            it.setFormatter(
+                toText = viewModel::convertDateToString,
+                fromText = viewModel::convertStringToDate
+            )
+        }
+
         launch { viewModel.collectScreenState { changeViewState(it) } }
     }
 

@@ -22,7 +22,6 @@ abstract class FragmentTaskEditor: BaseScreen<FragmentTaskEditBinding>() {
 
     open fun init() {
         binding?.fieldTaskTitle?.setTitle(getString(R.string.field_title_name))
-        binding?.fieldTaskDate?.setWithTime()?.setTitle(getString(R.string.field_title_date))
 
         binding!!.button.setText(getButtonText())
         binding!!.button.setOnClickListener {

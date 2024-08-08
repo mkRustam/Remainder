@@ -14,11 +14,10 @@ abstract class BaseDialog(val context: Context) {
 
     protected fun getTheme() = R.style.BaseDialog
     @LayoutRes protected abstract fun getLayoutId(): Int
-    protected abstract fun initDialog()
+    internal abstract fun initDialog()
 
     init {
         dialog = create()
-        initDialog()
     }
 
     fun show() {
