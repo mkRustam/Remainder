@@ -9,6 +9,7 @@ import com.projects.domain.entity.Status
 import com.projects.remainder.R
 import com.projects.remainder.ui.screens.tasks.base.FragmentTaskEditor
 import com.projects.ui_components.common.NavbarView
+import com.projects.ui_components.fields.FieldInputDate
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -43,7 +44,15 @@ class FragmentTaskUpdate : FragmentTaskEditor() {
         taskId = task?.id
         if(task != null) {
             binding?.fieldTaskTitle?.setValue(task.title)
-            binding?.fieldTaskDate?.setSelectedDate(task.dateTime)
+            binding?.fieldTaskDate?.let {
+                it.setWithTime()
+                it.setTitle(getString(R.string.field_title_date))
+                it.setSelectedDate(task.dateTime)
+                it.setFormatter(
+                    toText = viewModel::convertDateToString,
+                    fromText = viewModel::convertStringToDate
+                )
+            }
         }
         else toast(getString(R.string.task_not_found))
     }

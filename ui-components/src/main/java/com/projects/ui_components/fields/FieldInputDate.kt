@@ -2,11 +2,10 @@ package com.projects.ui_components.fields
 
 import android.content.Context
 import android.util.AttributeSet
-import com.projects.ui_components.dialogs.DialogCalendarSingle
-import com.projects.ui_components.dialogs.DialogTime
-import com.projects.ui_components.utils.toDefaultDate
-import com.projects.ui_components.utils.toDefaultString
-import java.util.*
+import com.projects.ui_components.dialogs.DialogDateSelector
+import com.projects.ui_components.dialogs.DialogTimeSelector
+import java.util.Calendar
+import java.util.Date
 
 class FieldInputDate : FieldInputBase<Date> {
 
@@ -14,6 +13,8 @@ class FieldInputDate : FieldInputBase<Date> {
     private var selectedDate: Calendar = Calendar.getInstance()
 
     private var selectListener: ((Date) -> Unit)? = null
+    private lateinit var formatterToText: (Date) -> String
+    private lateinit var formatterFromText: (String) -> Date
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -26,6 +27,14 @@ class FieldInputDate : FieldInputBase<Date> {
     fun setSelectedDate(selectedDate: Date?) {
         if(selectedDate != null) this.selectedDate.timeInMillis = selectedDate.time
         updateFieldValue()
+    }
+
+    fun setFormatter(
+        toText: (Date) -> String,
+        fromText: (String) -> Date
+    ) {
+        this.formatterToText = toText
+        this.formatterFromText = fromText
     }
 
     fun setSelectListener(selectListener: ((Date) -> Unit)?) {
@@ -57,23 +66,27 @@ class FieldInputDate : FieldInputBase<Date> {
     }
 
     override fun toValue(text: String?): Date? {
-        return if(!text.isNullOrEmpty()) text.toDefaultDate() else null
+        return if(!text.isNullOrEmpty()) formatterFromText(text) else null
     }
 
     private fun showDatePicker(finishListener: (Calendar) -> Unit) {
-        DialogCalendarSingle(context)
-            .setFinishListener(finishListener::invoke)
+        DialogDateSelector.Builder(context)
+            .resultListener(finishListener)
+            .initDate(selectedDate)
+            .build()
             .show()
     }
 
-    private fun showTimePicker(finishListener: (Calendar) -> Unit) {
-        DialogTime(context)
-            .setFinishListener(finishListener::invoke)
+    private fun showTimePicker(resultListener: (Calendar) -> Unit) {
+        DialogTimeSelector.Builder(context)
+            .initTime(selectedDate)
+            .resultListener(resultListener)
+            .build()
             .show()
     }
 
     private fun updateFieldValue() {
-        setValue(this.selectedDate.time.toDefaultString(), this.selectedDate.time)
+        setValue(formatterToText(this.selectedDate.time), this.selectedDate.time)
     }
 
     private fun setDate(calendar: Calendar) {

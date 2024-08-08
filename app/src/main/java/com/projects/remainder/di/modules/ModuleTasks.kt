@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import com.projects.remainder.ui.mappers.tasks.TaskUiMapper
+import com.projects.remainder.ui.mappers.utils.DateTimeUiMapper
 import javax.inject.Singleton
 
 @Module
@@ -13,6 +14,10 @@ class ModuleTasks {
 
     @Provides
     @Singleton
-    fun provideTaskUiMapper() = TaskUiMapper()
+    fun provideDateTimeUiMapper() = DateTimeUiMapper()
+
+    @Provides
+    @Singleton
+    fun provideTaskUiMapper(dateTimeUiMapper: DateTimeUiMapper) = TaskUiMapper(dateTimeUiMapper)
 
 }

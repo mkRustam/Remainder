@@ -50,7 +50,15 @@ class FragmentTaskDetail : BaseScreen<FragmentTaskDetailBinding>() {
     private fun initTask(task: EntityTask?) {
         if(task != null) {
             binding?.fieldTaskTitle?.setValue(task.title)
-            binding?.fieldTaskDate?.setSelectedDate(task.dateTime)
+            binding?.fieldTaskDate?.let {
+                it.setWithTime()
+                it.setTitle(getString(R.string.field_title_date))
+                it.setSelectedDate(task.dateTime)
+                it.setFormatter(
+                    toText = viewModel::convertDateToString,
+                    fromText = viewModel::convertStringToDate
+                )
+            }
         }
         else toast(getString(R.string.task_not_found))
     }
